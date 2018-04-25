@@ -6,7 +6,7 @@ import { createLogger } from 'redux-logger'
 import { createStore, applyMiddleware } from 'redux'
 import { fetchDay } from './actions'
 import trendingApp from './reducers'
-import DayContainer from './components/dayContainer'
+import OrthocalContainer from './components/orthocalContainer'
 
 const loggerMiddleware = createLogger()
 
@@ -18,13 +18,14 @@ const store = createStore(
   )
 )
 
+const day = new Date();
 store
-  .dispatch(fetchDay())
+  .dispatch(fetchDay(day))
   .then(() => console.log(store.getState()))
 
 render(
   <Provider store={store}>
-    <DayContainer />
+    <OrthocalContainer />
   </Provider>,
-  document.querySelector('body')
+  document.getElementById('orthocal')
 )

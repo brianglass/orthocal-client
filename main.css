@@ -1,0 +1,13 @@
+body {
+    margin: 0 auto;
+    width: 50%;
+}
+.passage p {
+    text-indent: 1em;
+    margin: 0;
+}
+
+.passage p .verse-number {
+    vertical-align: super;
+    font-size: 75%;
+}
