@@ -1,13 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
 body {
-    margin: 0 auto;
-    width: 50%;
+    margin: 0;
+    font-family: 'Merriweather', serif;
+}
+h1, h2, h3, h4 {
+    text-align: center;
+}
+header {
+    margin: 0;
+    padding: 40px 0 0 0;
+    text-align: center;
+}
+header h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+#orthocal {
+    margin: 5% auto;
+    width: 75%;
+    text-align: center;
+}
+#orthocal h1 {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 5px solid #eee;
+}
+#orthocal div {
+    text-align: left;
+}
+.passage {
+    columns: 3 20em;
+    column-gap: 2em;
+    column-rule: 1px solid #ddd;
+    padding-bottom: 4em;
+}
+.passage h4 {
+    margin-top: 0;
 }
 .passage p {
-    text-indent: 1em;
+    text-indent: 0.5em;
     margin: 0;
 }
-
 .passage p .verse-number {
     vertical-align: super;
     font-size: 75%;
+    color: gray;
+}
+.day>p {
+    text-align: center;
+}
+.day section {
+    text-align: left;
+}
+.commemorations ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.commemorations li {
+    display: inline;
+}
+.commemorations li:last-child:after {
+    content: "";
+}
+.commemorations li:after {
+    content: "; ";
+}
+.feasts ul {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+.feasts li {
+    display: inline;
+}
+.feasts li:last-child:after {
+    content: "";
+}
+.feasts li:after {
+    content: "; ";
 }
