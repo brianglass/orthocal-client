@@ -14,12 +14,22 @@ header {
 }
 header h1 {
     font-size: 42px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #666;
 }
-header nav a {
-    padding-right: 5px;
-    padding-left: 5px;
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+header nav li {
+    display: inline;
+    border-right: 3px solid #ddd;
+    padding: 8px;
+    margin-left: -4px;
+}
+header nav li:last-child {
+    border-right: none;
 }
 header nav a:link, header nav a:visited {
     color: black;
@@ -28,31 +38,57 @@ header nav a:link, header nav a:visited {
 header nav a:hover {
     text-decoration: underline;
 }
-#orthocal {
-    margin: 3% auto;
+article {
+    margin: 2% auto;
     width: 75%;
+}
+article#content {
+    border-top: 5px solid #eee;
+    padding-top: 1.5em;
+}
+article#orthocal {
     text-align: center;
+}
+article#content p {
+    text-indent: 2em;
 }
 #orthocal h1 {
     margin-top: 0;
-    margin-bottom: 1em;
-    padding-bottom: 1em;
-    border-bottom: 5px solid #eee;
+    margin-bottom: 0;
 }
 #orthocal div {
     text-align: left;
 }
 #orthocal button {
-    background-color: #666;
+    font-family: 'Merriweather', serif;
+    font-size: 1em;
+    background-color: #999;
+    border: 1px solid #999;
     color: white;
-    padding: 10px;
-    margin: 2px;
-    border: 1px solid #666;
+    padding: 8px;
+    margin: 3px;
+    transition-duration: 0.3s;
+    border-radius: 3px;
 }
 #orthocal button:hover {
     background-color: white;
-    color: black;
-    border: 1px solid #444;
+    color: #666;
+    border: 1px solid #bbb;
+}
+#orthocal button:active {
+    background-color: #ddd;
+}
+input {
+    font-family: 'Merriweather', serif;
+}
+.day {
+    margin-top: 1em;
+    padding-top: 1.5em;
+    border-top: 5px solid #eee;
+}
+.day .commemorations li, .day .feasts li, .day > p {
+    font-size: 1.1em;
+    color: #555;
 }
 .passage {
     columns: 3 20em;
@@ -81,6 +117,9 @@ header nav a:hover {
 label {
     margin-top: 35px;
 }
+.readings {
+    font-size: 1em;
+}
 .commemorations ul {
     text-align: center;
     margin: 0;
@@ -108,4 +147,10 @@ label {
 }
 .feasts li:after {
     content: "; ";
+}
+.feasts h3, .commemorations h3 {
+    margin-bottom: 3px;
+}
+.readings h3 {
+    margin-top: 30px;
 }

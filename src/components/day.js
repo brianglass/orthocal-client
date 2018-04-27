@@ -4,7 +4,7 @@ import dateFormat from 'dateformat'
 
 const Day = ({day, date}) => (
     <div className="day">
-        <h2>{day.titles[0]}<br/>{dateFormat(date, "mmmm d, yyyy")}</h2>
+        <h2>{dateFormat(date, "mmmm d, yyyy")}<br/>{day.titles[0]}</h2>
         <p>{day.fast_level_desc}{day.fast_exception.length > 0 ? ` - ${day.fast_exception}` : ""}</p>
 
         {day.feasts &&
@@ -26,7 +26,7 @@ const Day = ({day, date}) => (
         }
 
         <section className="readings">
-            <h3>Readings</h3>
+            <h3>Readings (KJV)</h3>
             {day.readings.map(reading => (
                 <Reading reading={reading}/>
             ))}

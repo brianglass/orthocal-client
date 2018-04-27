@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Orthodox Calendar Service</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="main.css"/>
+	</head>
+	<body>
+        <header>
+            <h1>Orthodox Calendar</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Daily Readings</a></li>
+                    <li><a href="alexa.html">Alexa Skill</a></li>
+                    <li><a href="api.html">API</a></li>
+                    <li><a href="ical.html">iCal</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article id="content">
+            <h1>About</h1>
+            <p>Orthocal.info is an Eastern Orthodox calendar service providing
+            a RESTful api describing commemorations, fasting, scripture
+            readings and other information for each day of the liturgical year.
+            Presently only the OCA is fully supported.  There is tentative
+            support for ROCOR, but fasting guidelines may not be 100% correct.
+            With assistance, I may eventually provide support for other US
+            jurisdictions.</p>
+
+            <p>
+            This service is meant to be a tool for mobile developers and parish
+            webmasters to use to provide this information to parishioners and
+            other guests.
+            <a href="https://github.com/brianglass/orthocal-service">Source code</a>
+            and a <a href="https://hub.docker.com/r/brianglass/orthocal-service/">docker
+            image</a> for self-hosting are freely available.</p>
+
+            <h2>Algorithm</h2>
+            <p>The algorithm and data used in this service are based on the
+            algorithm and data developed by Paul Kachur's 
+            <a href="https://github.com/paulkachur/orthodox_calendar">orthodox_calendar</a> project. 
+            As such, the commemoration data is incomplete.  The primary
+            purpose of this service is to provide daily scripture readings for lay
+            persons and not to be an authoritative guide to the feasts and fasts of the Church.</p>
+
+            <h2>Scriptures</h2>
+            <p>Because this is open-source and free, the service must use a
+            translation of the Bible that is either public domain or has agreeable
+            license terms. At this point I have chosen to stick with the King James
+            Version. While not ideal, many clergy consider this to be one of the
+            best options for Orthodox. Because the rubrics use Septuagint
+            versification, a handful of the Old Testament readings may be incorrect.</p>
+
+            <h2>Bugs</h2>
+            <p>Please report bugs using the <a href="https://github.com/brianglass/orthocal-service/issues">Github issue tracker</a>.</p>
+        </article>
+	</body>
+</html>

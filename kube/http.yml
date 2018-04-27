@@ -1,0 +1,46 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orthocal-client
+  namespace: orthocal
+  labels:
+    app: orthocal-client
+    service: http
+spec:
+  type: NodePort
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+  selector:
+    app: orthocal-client
+    service: http
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: http
+  namespace: orthocal
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: orthocal-client
+        service: http
+    spec:
+      containers:
+      - name: orthocal-client
+        imagePullPolicy: Always
+        image: brianglass/orthocal-client:latest
+        resources:
+          requests:
+            cpu: 256m
+            memory: 32Mi
+          limits:
+            cpu: 940m
+            memory: 128Mi
+        ports:
+        - name: http
+          containerPort: 8080
