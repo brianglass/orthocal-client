@@ -10,22 +10,22 @@ import OrthocalContainer from './components/orthocalContainer'
 
 const loggerMiddleware = createLogger()
 
-const store = createStore(
+export const store = createStore(
   trendingApp,
   applyMiddleware(
     thunkMiddleware, // lets us dispatch() functions
     loggerMiddleware // neat middleware that logs actions
   )
-)
+);
 
 const day = new Date();
 store
   .dispatch(fetchDay(day))
-  .then(() => console.log(store.getState()))
+  .then(() => console.log(store.getState()));
 
 render(
   <Provider store={store}>
     <OrthocalContainer />
   </Provider>,
   document.getElementById('orthocal')
-)
+);

@@ -15,20 +15,44 @@ header {
 header h1 {
     font-size: 42px;
     margin-bottom: 10px;
-    color: #444;
+    color: #666;
+}
+header nav a {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+header nav a:link, header nav a:visited {
+    color: black;
+    text-decoration: none;
+}
+header nav a:hover {
+    text-decoration: underline;
 }
 #orthocal {
-    margin: 5% auto;
+    margin: 3% auto;
     width: 75%;
     text-align: center;
 }
 #orthocal h1 {
+    margin-top: 0;
     margin-bottom: 1em;
     padding-bottom: 1em;
     border-bottom: 5px solid #eee;
 }
 #orthocal div {
     text-align: left;
+}
+#orthocal button {
+    background-color: #666;
+    color: white;
+    padding: 10px;
+    margin: 2px;
+    border: 1px solid #666;
+}
+#orthocal button:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid #444;
 }
 .passage {
     columns: 3 20em;
@@ -40,7 +64,7 @@ header h1 {
     margin-top: 0;
 }
 .passage p {
-    text-indent: 0.5em;
+    text-indent: 1em;
     margin: 0;
 }
 .passage p .verse-number {
@@ -53,6 +77,9 @@ header h1 {
 }
 .day section {
     text-align: left;
+}
+label {
+    margin-top: 35px;
 }
 .commemorations ul {
     text-align: center;

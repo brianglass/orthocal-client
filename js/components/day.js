@@ -1,9 +1,10 @@
 import React from 'react'
 import Reading from './reading'
+import dateFormat from 'dateformat'
 
-const Day = ({day}) => (
+const Day = ({day, date}) => (
     <div className="day">
-        <h2>{day.titles[0]}</h2>
+        <h2>{day.titles[0]}<br/>{dateFormat(date, "mmmm d, yyyy")}</h2>
         <p>{day.fast_level_desc}{day.fast_exception.length > 0 ? ` - ${day.fast_exception}` : ""}</p>
 
         {day.feasts &&
