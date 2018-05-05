@@ -6,21 +6,21 @@ metadata:
   namespace: orthocal
   labels:
     app: orthocal-client
-    service: http
+    service: nginx
 spec:
   type: NodePort
   ports:
   - name: http
     port: 80
-    targetPort: 8080
+    targetPort: 80
   selector:
     app: orthocal-client
-    service: http
+    service: nginx
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: http
+  name: orthocal-client
   namespace: orthocal
 spec:
   replicas: 2
@@ -28,7 +28,7 @@ spec:
     metadata:
       labels:
         app: orthocal-client
-        service: http
+        service: nginx
     spec:
       containers:
       - name: orthocal-client
@@ -43,4 +43,4 @@ spec:
             memory: 128Mi
         ports:
         - name: http
-          containerPort: 8080
+          containerPort: 80
