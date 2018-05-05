@@ -13,7 +13,7 @@ const Orthocal = ({state, fetchDay, setJurisdiction}) => {
     return (
         <section className="orthocal">
             <button onClick={() => fetchDay(previousDay)}>Previous Day</button>
-            <button onClick={() => fetchDay(today)}>Today</button>
+            <button onClick={() => fetchDay(new Date())}>Today</button>
             <button onClick={() => fetchDay(nextDay)}>Next Day</button>
 
             <br/>
