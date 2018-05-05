@@ -2,8 +2,6 @@ import React from 'react'
 import Day from './day'
 
 const Orthocal = ({state, fetchDay, setJurisdiction}) => {
-    const today = new Date();
-
     let nextDay = new Date(state.date.getTime());
     nextDay.setDate(nextDay.getDate() + 1);
 
