@@ -14,7 +14,7 @@ const initialState = {
         titles: [],
         feasts: [],
         fast_level_desc: "",
-        fast_exception: "",
+        fast_exception_desc: "",
         readings: []
     }
 };
