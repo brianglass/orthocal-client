@@ -13,6 +13,7 @@ const initialState = {
     day: {
         titles: [],
         feasts: [],
+        fast_level: 0,
         fast_level_desc: "",
         fast_exception_desc: "",
         readings: []
