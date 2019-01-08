@@ -4,7 +4,12 @@ import dateFormat from 'dateformat'
 
 const Day = ({day, date}) => (
     <div className="day">
-        <h2>{dateFormat(date, "mmmm d, yyyy")}<br/>{day.titles[0]}</h2>
+        <h2>{dateFormat(date, "mmmm d, yyyy")}{day.titles &&
+						<span>
+						<br/>{day.titles[0]}
+						</span>
+				}
+				</h2>
         <p>{day.fast_level_desc}{day.fast_level && day.fast_exception ? ` — ${day.fast_exception_desc}` : ""}</p>
 
         {day.feasts &&
