@@ -44,3 +44,7 @@ spec:
         ports:
         - name: http
           containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
