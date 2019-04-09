@@ -1,7 +1,11 @@
-FROM nginx:stable
-COPY *html /usr/share/nginx/html/
-COPY *css /usr/share/nginx/html/
-COPY favicon/* /usr/share/nginx/html/
-COPY dist /usr/share/nginx/html/dist/
-COPY nginx /etc/nginx/
-RUN gzip --keep /usr/share/nginx/html/dist/*js
+FROM node:alpine
+
+WORKDIR /orthocal-client/
+ADD . .
+
+RUN npm install
+RUN npm run babel
+RUN npm run compile
+
+EXPOSE 8000
+ENTRYPOINT npm run start

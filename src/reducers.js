@@ -6,7 +6,7 @@ import {
 
 const today = new Date();
 
-const initialState = {
+export const initialState = {
     isFetching: false,
     date: today,
     jurisdiction: "oca",
@@ -20,7 +20,7 @@ const initialState = {
     }
 };
 
-function orthocalApp(state=initialState, action) {
+export default function orthocalApp(state=initialState, action) {
     switch (action.type) {
         case REQUEST_DAY:
             return {
@@ -43,5 +43,3 @@ function orthocalApp(state=initialState, action) {
             return state;
     }
 }
-
-export default orthocalApp

@@ -6,16 +6,16 @@ metadata:
   namespace: orthocal
   labels:
     app: orthocal-client
-    service: nginx
+    service: express
 spec:
   type: NodePort
   ports:
   - name: http
     port: 80
-    targetPort: 80
+    targetPort: 8000
   selector:
     app: orthocal-client
-    service: nginx
+    service: express
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
@@ -23,12 +23,12 @@ metadata:
   name: orthocal-client
   namespace: orthocal
 spec:
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
         app: orthocal-client
-        service: nginx
+        service: express
     spec:
       containers:
       - name: orthocal-client
@@ -37,14 +37,19 @@ spec:
         resources:
           requests:
             cpu: 50m
-            memory: 10Mi
+            memory: 110Mi
           limits:
             cpu: 100m
-            memory: 15Mi
+            memory: 130Mi
         ports:
         - name: http
-          containerPort: 80
+          containerPort: 8000
+        env:
+        - name: BASE_URL
+          value: "http://orthocal-service"
+        - name: TZ
+          value: "America/Denver"
         livenessProbe:
           httpGet:
             path: /healthz
-            port: 80
+            port: 8000
