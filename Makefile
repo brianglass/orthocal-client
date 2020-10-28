@@ -1,6 +1,5 @@
 build:
 	docker build -t orthocal-client .
-	touch docker
 
 run:
 	docker run -it -p8000:8000 orthocal-client

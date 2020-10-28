@@ -7,7 +7,6 @@ import nunjucks from 'nunjucks'
 import {stringify} from 'javascript-stringify';
 import compression from 'compression'
 
-import template from './template'
 import configureStore from './configureStore'
 import {fetchDay} from './actions'
 import OrthocalContainer from './components/orthocalContainer'
