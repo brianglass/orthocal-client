@@ -22,8 +22,8 @@ nunjucks.configure('templates', {
     express: app
 });
 
-app.use('/dist', express.static(path.resolve(__dirname, '../dist')))
-app.use('/media', express.static(path.resolve(__dirname, '../media')))
+app.use('/dist', express.static(path.resolve(__dirname, '../dist'), {maxAge: '4h'}))
+app.use('/media', express.static(path.resolve(__dirname, '../media'), {maxAge: '4h'}))
 
 app.listen(process.env.PORT || 8000)
 
@@ -39,17 +39,55 @@ app.get('/', (request, response) => {
         </Provider>
       );
 
-      response.setHeader('Cache-Control', 'assets, max-age=604800')
       response.render('index.html', {content: content, initialState: stringify(store.getState())})
     }
   )
 })
 
-app.get('/about', (request, response) => {response.render('about.html')})
-app.get('/alexa', (request, response) => {response.render('alexa.html')})
-app.get('/api', (request, response) => {response.render('api.html')})
-app.get('/ical', (request, response) => {response.render('ical.html')})
+app.get('/calendar/:jurisdiction(oca|rocor)/:year(\\d+)/:month(\\d+)/:day(\\d+)', (request, response) => {
+  const jurisdiction = request.params['jurisdiction'];
+  const year = parseInt(request.params['year']);
+  const month = parseInt(request.params['month']);
+  const date = parseInt(request.params['day']);
 
-app.use('/favicon.ico', express.static(path.resolve(__dirname, '../media/favicon.ico')))
+  const store = configureStore({
+    ...initialState,
+    jurisdiction: jurisdiction
+  })
+
+  const day = new Date(year, month-1, date)
+
+  store.dispatch(fetchDay(day))
+    .then(() => {
+      let content = renderToString(
+        <Provider store={store} >
+          <OrthocalContainer />
+        </Provider>
+      );
+
+      response.render('index.html', {content: content, initialState: stringify(store.getState())})
+    }
+  )
+});
+
+app.get('/about', (request, response) => {
+  response.setHeader('Cache-Control', 'assets, max-age=14400')
+  response.render('about.html')
+})
+app.get('/alexa', (request, response) => {
+  response.setHeader('Cache-Control', 'assets, max-age=14400')
+  response.render('alexa.html')
+})
+app.get('/api', (request, response) => {
+  response.setHeader('Cache-Control', 'assets, max-age=14400')
+  response.render('api.html')
+})
+app.get('/ical', (request, response) => {
+  response.setHeader('Cache-Control', 'assets, max-age=14400')
+  response.render('ical.html')
+})
+
+app.use('/favicon.ico', express.static(path.resolve(__dirname, '../media/favicon.ico'), {maxAge: '4h'}))
+app.use('/browserconfig.xml', express.static(path.resolve(__dirname, '../media/browserconfig.xml'), {maxAge: '4h'}))
 
 app.get('/healthz', (request, response) => {response.send('ok')})

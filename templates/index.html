@@ -7,8 +7,8 @@
 {% block scripts %}
 	{% if content %}
 			<script>window.__STATE__ = {{initialState|safe}}</script>
-			<script src="dist/client.js"></script>
+			<script defer src="/dist/client.js"></script>
 	{% else %}
-			<script src="dist/bundle.js"> </script>
+			<script defer src="/dist/bundle.js"> </script>
 	{% endif %}
 {% endblock %}
