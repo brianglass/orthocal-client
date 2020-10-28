@@ -7,8 +7,8 @@ module.exports = merge(common, {
     devtool: 'source-map',
     plugins: [
 				new webpack.DefinePlugin({
-					'process.env.PORT': 8000,
-					'process.env.BASE_URL': JSON.stringify('https://orthocal.info')
+					'process.env.PORT': process.env.PORT,
+					'process.env.BASE_URL': JSON.stringify(process.env.BASE_URL)
         })
     ]
 });
