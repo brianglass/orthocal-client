@@ -4,10 +4,10 @@ import Day from './day'
 const Orthocal = ({state, fetchDay, setJurisdiction}) => {
 		const date = new Date(state.date);
 
-    let nextDay = new Date(date.getTime());
+    let nextDay = new Date(state.date);
     nextDay.setDate(nextDay.getDate() + 1);
 
-    let previousDay = new Date(date.getTime());
+    let previousDay = new Date(state.date);
     previousDay.setDate(previousDay.getDate() - 1);
 
     return (

@@ -29,8 +29,6 @@ app.listen(port)
 
 app.get('/', (request, response) => {
   const store = configureStore()
-	// This gets set on the client, but in the client's timezone, so it differs from what is generated on the server.
-	// This creates a disparity between what is displayed for the date and what is displayed for the readings.
   const day = new Date()
 
   store.dispatch(fetchDay(day))
