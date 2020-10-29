@@ -11,7 +11,7 @@ const today = new Date();
 
 export const initialState = {
     isFetching: false,
-    date: today,
+    date: today.toDateString(),
     jurisdiction: "oca",
 		base_url: base_url,
     day: {
@@ -36,7 +36,7 @@ export default function orthocalApp(state=initialState, action) {
                 ...state,
                 isFetching: false,
                 day: action.day,
-                date: action.date
+                date: action.date.toDateString()
             };
         case SET_JURISDICTION:
             return {

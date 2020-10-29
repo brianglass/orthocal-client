@@ -2,10 +2,12 @@ import React from 'react'
 import Day from './day'
 
 const Orthocal = ({state, fetchDay, setJurisdiction}) => {
-    let nextDay = new Date(state.date.getTime());
+		const date = new Date(state.date);
+
+    let nextDay = new Date(date.getTime());
     nextDay.setDate(nextDay.getDate() + 1);
 
-    let previousDay = new Date(state.date.getTime());
+    let previousDay = new Date(date.getTime());
     previousDay.setDate(previousDay.getDate() - 1);
 
     return (
@@ -17,15 +19,15 @@ const Orthocal = ({state, fetchDay, setJurisdiction}) => {
             <br/>
 
             <label>
-                <input type="radio" name="jurisdiction" value="oca" onChange={() => {setJurisdiction("oca"); fetchDay(state.date);}} checked={state.jurisdiction === 'oca'}/>
+                <input type="radio" name="jurisdiction" value="oca" onChange={() => {setJurisdiction("oca"); fetchDay(date);}} checked={state.jurisdiction === 'oca'}/>
                 oca
             </label>
             <label>
-                <input type="radio" name="jurisdiction" value="rocor" onChange={() => {setJurisdiction("rocor"); fetchDay(state.date);}} checked={state.jurisdiction === 'rocor'}/>
+                <input type="radio" name="jurisdiction" value="rocor" onChange={() => {setJurisdiction("rocor"); fetchDay(date);}} checked={state.jurisdiction === 'rocor'}/>
                 rocor
             </label>
 
-            <Day day={state.day}/>
+            <Day day={state.day} date={date}/>
         </section>
     )
 };
