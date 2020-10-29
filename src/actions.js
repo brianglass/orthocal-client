@@ -1,7 +1,5 @@
 import fetch from 'cross-fetch';
 
-const base_url = process.env.BASE_URL || 'https://orthocal.info'
-
 export const REQUEST_DAY = 'REQUEST_DAY';
 function requestDay() {
     return {
@@ -32,7 +30,7 @@ export function fetchDay(date) {
 
         // Fetch the day data
         const state = getState()
-        const url = `${base_url}/api/${state.jurisdiction}/${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}/`
+        const url = `${state.base_url}/api/${state.jurisdiction}/${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}/`
         const promise = fetch(url).then(response => response.json())
 
         promise.then(day => dispatch(receiveDay(day, date)))

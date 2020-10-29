@@ -11,6 +11,7 @@ import configureStore from './configureStore'
 import {fetchDay} from './actions'
 import OrthocalContainer from './components/orthocalContainer'
 import {initialState} from './reducers'
+import {port} from './env'
 
 const app = express()
 
@@ -24,10 +25,12 @@ nunjucks.configure('templates', {
 app.use('/dist', express.static(path.resolve(__dirname, '../dist'), {maxAge: '4h'}))
 app.use('/media', express.static(path.resolve(__dirname, '../media'), {maxAge: '4h'}))
 
-app.listen(process.env.PORT || 8000)
+app.listen(port)
 
 app.get('/', (request, response) => {
   const store = configureStore()
+	// This gets set on the client, but in the client's timezone, so it differs from what is generated on the server.
+	// This creates a disparity between what is displayed for the date and what is displayed for the readings.
   const day = new Date()
 
   store.dispatch(fetchDay(day))

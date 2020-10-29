@@ -1,3 +1,6 @@
+import dateFormat from 'dateformat'
+
+import {base_url} from './env'
 import {
     REQUEST_DAY,
     RECEIVE_DAY,
@@ -10,6 +13,7 @@ export const initialState = {
     isFetching: false,
     date: today,
     jurisdiction: "oca",
+		base_url: base_url,
     day: {
         titles: [],
         feasts: [],

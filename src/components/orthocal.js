@@ -25,7 +25,7 @@ const Orthocal = ({state, fetchDay, setJurisdiction}) => {
                 rocor
             </label>
 
-            <Day day={state.day} date={state.date}/>
+            <Day day={state.day}/>
         </section>
     )
 };
